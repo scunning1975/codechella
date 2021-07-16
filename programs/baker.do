@@ -162,7 +162,7 @@ save ../data/baker.dta, replace
 **************************************************************************************************************************************
 
 * Create group dummies
-gen	g1=0
+gen		g1=0
 replace g1=1 if group==1
 
 gen 	g2=0
@@ -208,7 +208,7 @@ gen w0 = ((1 - g1)*pg1_1991/(1 - pg1_1991))/g1_cont_1991mean
 * Generate each component of the DID
 egen att_11 = mean(w1*ypost)
 egen att_10 = mean(w1*ypre)
-egen att_01 =  mean(w0*ypost)
+egen att_01 = mean(w0*ypost)
 egen att_00 = mean(w0*ypre)
 
 * Get the ATT(1986,1986)
