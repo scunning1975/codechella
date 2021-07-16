@@ -1,0 +1,39 @@
+library(readstata13)
+library(ggplot2)
+library(did) # Callaway & Sant'Anna
+
+baker <- data.frame(read.dta13("/users/scott_cunningham/dropbox/CI Workshop/data/baker.dta"))
+baker$treat_date[is.na(baker$treat_date)] <- 0 # untreated units have effective year of 0
+
+# Estimating the effect on y2 (constant) and y (dynamic treatment)
+atts <- att_gt(yname = "y", # LHS variable
+               tname = "year", # time variable
+               idname = "id", # id variable
+               gname = "treat_date", # first treatment period variable
+               data = baker, # data
+               xformla = NULL, # no covariates
+               #xformla = ~ l_police, # with covariates
+               est_method = "dr", # "dr" is doubly robust. "ipw" is inverse probability weighting. "reg" is regression
+               control_group = "notyettreated", # set the comparison group which is either "nevertreated" or "notyettreated" 
+               bstrap = TRUE, # if TRUE compute bootstrapped SE
+               biters = 1000, # number of bootstrap iterations
+               print_details = FALSE, # if TRUE, print detailed results
+               clustervars = "state", # cluster level
+               panel = TRUE) # whether the data is panel or repeated cross-sectional
+
+# Aggregate ATT
+agg_effects <- aggte(atts, type = "group")
+summary(agg_effects)
+
+# Group-time ATTs
+summary(atts)
+
+# Plot group-time ATTs
+ggdid(atts)
+
+# Event-study
+agg_effects_es <- aggte(atts, type = "dynamic")
+summary(agg_effects_es)
+
+# Plot event-study coefficients
+ggdid(agg_effects_es)

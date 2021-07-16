@@ -1,0 +1,7 @@
+%>%	pipe
+did2s	did2s
+did_imputation	did_imputation
+event_study	event_study
+gen_data	gen_data
+plot_event_study	plot_event_study
+theme_kyle	theme_kyle

@@ -1,0 +1,18 @@
+citHeader("To cite did2s in publications use:")
+
+PKG <- "did2s"
+vers <- paste("R package version", meta$Version)
+# url <- paste0("https://CRAN.R-project.org/package=", PKG)
+
+citEntry(entry	= "Manual",
+	 title	= "did2s: Imputation Based Difference-in-Differences",
+	 author = c(
+         person("Kyle", "Butts", email="kyle.butts@colorado.edu",
+                role = c("aut", "cre")
+               )
+         ),
+	 year = 2021,
+   url = "https://www.github.com/kylebutts/did2s",
+	 textVersion = paste0(
+             "Butts, Kyle (2021).  did2s: Imputation Based Difference-in-Differences. ", vers, ".")
+         )

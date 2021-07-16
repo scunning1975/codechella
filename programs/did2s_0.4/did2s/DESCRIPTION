@@ -1,0 +1,34 @@
+Package: did2s
+Title: Estimate Two-Stage Difference-in-Differences following Gardner
+        (2021)
+Version: 0.4.0
+Authors@R: 
+    c(person(given = "Kyle",
+             family = "Butts",
+             role = "cre",
+             email = "kyle.butts@colorado.edu",
+             comment = c(ORCID = "0000-0002-9048-8059")),
+      person(given = "Grant",
+             family = "McDermott",
+             role = "ctb",
+             email = "grantmcd@uoregon.edu",
+             comment = c(ORCID = "0000-0001-7883-8573")))
+Description: This package creates the function `did2s` which allows you to estimate TWFE diff-in-diff/event-study models. To avoid the problems caused by OLS estimation of the TWFE model, this function first estimates the fixed effects and covariates using untreated observations and then in a second stage, estimates the treatment effects.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Depends: R (>= 2.10), fixest (>= 0.9.0)
+Imports: dplyr, magrittr, glue, stats, stringr, rlang, tibble, tidyr,
+        rsample, purrr, cli, Matrix, Rcpp, did, broom
+Remotes: jonathandroth/staggered
+URL: http://kylebutts.com/did2s
+Suggests: rmarkdown, knitr, testthat (>= 3.0.0)
+VignetteBuilder: knitr
+LinkingTo: RcppArmadillo, Rcpp
+Config/testthat/edition: 3
+Author: Kyle Butts [cre] (<https://orcid.org/0000-0002-9048-8059>),
+  Grant McDermott [ctb] (<https://orcid.org/0000-0001-7883-8573>)
+Maintainer: Kyle Butts <kyle.butts@colorado.edu>
+Built: R 4.1.0; x86_64-apple-darwin17.0; 2021-07-16 02:38:37 UTC; unix

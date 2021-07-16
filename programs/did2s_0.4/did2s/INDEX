@@ -1,0 +1,8 @@
+did2s                   Calculate two-stage difference-in-differences
+                        following Gardner (2021)
+did_imputation          Borusyak, Jaravel, and Spiess (2021) Estimator
+event_study             Estimate event-study coefficients using TWFE
+                        and 5 proposed improvements.
+gen_data                Generate TWFE data
+plot_event_study        Plot results of 'event_study()'
+theme_kyle              Kyle Butts' custom ggplot theme
