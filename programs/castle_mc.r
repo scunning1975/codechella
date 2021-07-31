@@ -26,7 +26,7 @@ castle$effyear = replace_na(castle$effyear, 0)
 # Quick look at the data. We have a balanced panel with 21 treated units (i.e.
 # states) and variable treatment timing
 panelView(l_homicide ~ post, data = data.frame(castle),
-  index = c('sid', 'year'), pre.post = TRUE, by.timing = TRUE)
+          index = c('sid', 'year'), pre.post = TRUE, by.timing = TRUE)
 
 # Similar, but in tabular form
 castle %>%
@@ -34,9 +34,9 @@ castle %>%
   mutate(treated = any(post>0)) %>%
   group_by(treated) %>%
   summarise(
-  n_states = n_distinct(sid),
-  n_cities = n(),
-  mean_treatment_perc = mean(post)*100 ## Percentage of treated periods
+    n_states = n_distinct(sid),
+    n_cities = n(),
+    mean_treatment_perc = mean(post)*100 ## Percentage of treated periods
   )
 
 
